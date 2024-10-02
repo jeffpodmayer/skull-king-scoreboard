@@ -1,2 +1,3 @@
-#Skull King Scoreboard Design Document
-##Background
+# Skull King Scoreboard Design Document
+
+## Background
