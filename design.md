@@ -51,9 +51,17 @@ Users can start a new game without any history of past games.
 
 ## Application Logic and Outline
 
-## Tech Choies and Outline
+## Tech Choices
 
 **React**
 Dynamic User Experience: React allows you to create a smooth, interactive UI where players can enter their bids, see scores update in real-time, and navigate through the game easily.
 
 Reusability: Components like PlayerList, RoundTracker, and Scoreboard can be developed as independent, reusable units, making your codebase more organized and maintainable.
+
+**TypeScipt**
+NOT SURE IF I SHOULD USE THIS... seems like it might be beneficial
+
+**CSS**
+UI: CSS to create a visually appealing interface for the scoring application. I can apply themes, colors, and layouts that match the spirit of the Skull King game.
+
+Responsive Design: Application should look clean on the web, as well as, on various devices, especially mobile phones.
