@@ -14,8 +14,10 @@ The Skull King scoring application is designed for players of the card game Skul
 
 ## Stateless Approach
 
-Simplicity: No need to manage a backend server or database. \n
-Performance: The application will be lightweight. \n
+Simplicity: No need to manage a backend server or database.
+
+Performance: The application will be lightweight.
+
 Flexibility: Users can quickly start new games without any setup or data migration.
 
 ## High Level Architecture
