@@ -1,4 +1,4 @@
-# Skull King Scoreboard Design Document
+# Skull King Scoreboard Design Document - Single Page Application
 
 ## Background
 
@@ -12,8 +12,48 @@ The application allows players to record their bids, tricks won, and apply the n
 
 The Skull King scoring application is designed for players of the card game Skull King who want a more streamlined and automated way to keep track of scores. Typically, during a Skull King game, one player is responsible for manually calculating the score for each round based on the bids and tricks won by all participants. Given the complexity of Skull King's scoring system—where correct bids earn points, incorrect bids incur penalties, and bonuses apply for special achievements—keeping track of everything can quickly become cumbersome, especially in longer games with more players.
 
+## Stateless Approach
+
+Simplicity: No need to manage a backend server or database.
+Performance: The application will be lightweight.
+Flexibility: Users can quickly start new games without any setup or data migration.
+
 ## High Level Architecture
+
+App Component:
+Manages the overall state of the game (players, rounds, scores) in memory.
+
+PlayerList Component:
+Allows users to add or remove players.
+Displays current players in the game and their bids.
+
+RoundTracker Component:
+Facilitates entering bids and recording tricks won.
+Calculates scores based on the game rules after each round.
+
+Scoreboard Component:
+Displays the current scores for all players after each round.
+Automatically updates when scores change.
+
+## User Experience and Flow
+
+Starting a Game:
+Users enter player names and start a game directly in the application.
+The game state is initialized in memory.
+
+Playing the Game:
+Users enter bids for tricks and record the actual tricks won.
+After each round, scores are calculated and displayed in the scoreboard.
+
+Ending the Game:
+When the game ends, all data is lost once the page is refreshed or closed, as it is not saved anywhere.
+Users can start a new game without any history of past games.
 
 ## Application Logic and Outline
 
 ## Tech Choies and Outline
+
+**React**
+Dynamic User Experience: React allows you to create a smooth, interactive UI where players can enter their bids, see scores update in real-time, and navigate through the game easily.
+
+Reusability: Components like PlayerList, RoundTracker, and Scoreboard can be developed as independent, reusable units, making your codebase more organized and maintainable.
