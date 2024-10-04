@@ -20,6 +20,13 @@ Performance: The application will be lightweight.
 
 Flexibility: Users can quickly start new games without any setup or data migration.
 
+1. State Management
+   Use State Hooks: Utilize React state hooks (useState) for managing:
+
+- Current round.
+- Player list (name, score, bid, tricks).
+- Historical scores for past rounds.
+
 ## High Level Architecture
 
 App Component:
@@ -69,67 +76,49 @@ UI: CSS to create a visually appealing interface for the scoring application. I 
 
 Responsive Design: Application should look clean on the web, as well as, on various devices, especially mobile phones.
 
+Styling and Responsiveness
+CSS Styling: Apply styles for layout consistency and user-friendly design.
+Responsive Design: Ensure the application is usable on various screen sizes (desktop, tablet, mobile).
+
+Accessibility
+Keyboard Navigation:
+Ensure buttons and inputs are accessible via keyboard.
+
 ## Application Logic and Outline
 
 1. Application Initialization
-   Load Initial State:
    Set up the default state (e.g., round number, player list, scores).
    Initialize necessary components (e.g., score tracking, player management).
+
 2. User Interface Interactions
-   Add Player:
+   Add Player: Capture the player's name from the input field.
+   Validation: Check for empty names or duplicates.
+   Update State: Add the player to the player list and reset the input field.
 
-Input Handling:
-Capture the player's name from the input field.
-Validation:
-Check for empty names or duplicates.
-Update State:
-Add the player to the player list and reset the input field.
-Start Game:
+3. Start Game:
+   Set Initial Round: Reset scores and set the current round to 1.
+   Initialize Player Scores: Set all players' scores to 0 for the new round.
 
-Set Initial Round:
-Reset scores and set the current round to 1.
-Initialize Player Scores:
-Set all players' scores to 0 for the new round.
-Track Scores:
+4. Track Scores:
+   Input Handling: Capture bids and tricks won for each player.
+   Score Calculation:
+   Calculate scores based on:
+   Correctly guessed tricks.
+   Incorrect guesses (penalizing for deviations).
+   Successful zero tricks prediction (with round multiplier).
+   Bonus Points awarded from special cards collected by player.
 
-Input Handling:
-Capture bids and tricks won for each player.
-Score Calculation:
-Calculate scores based on:
-Correctly guessed tricks.
-Incorrect guesses (penalizing for deviations).
-Successful zero tricks prediction (with round multiplier).
-Update State:
-Update the player scores based on calculations.
-Submit Scores:
+5. Update State: Update the player scores based on calculations.
 
-Finalize Scores:
-Save the scores for the current round.
-Increment Round:
-Move to the next round and reset inputs for new bids and tricks.
-Reset Round:
+6. Submit Scores:
+   Finalize Scores: Save the scores for the current round.
+   Increment Round: Move to the next round and reset inputs for new bids and tricks.
+   Reset Round:
+   Clear Inputs: Reset all player inputs for bids and tricks for the current round.
+   View Game History:
+   Display Previous Scores: Retrieve and display scores from previous rounds.
+   Allow users to navigate back to the main scoring interface.
 
-Clear Inputs:
-Reset all player inputs for bids and tricks for the current round.
-View Game History:
-
-Display Previous Scores:
-Retrieve and display scores from previous rounds.
-Allow users to navigate back to the main scoring interface. 3. State Management
-Use State Hooks:
-Utilize React state hooks (useState) for managing:
-Current round.
-Player list (name, score, bid, tricks).
-Historical scores for past rounds. 4. Error Handling
-Validation Checks:
-Handle scenarios for invalid inputs (e.g., empty player names, incorrect bid/trick numbers).
-User Feedback:
-Provide feedback for errors (e.g., alerts or messages for invalid actions). 5. Styling and Responsiveness
-CSS Styling:
-Apply styles for layout consistency and user-friendly design.
-Responsive Design:
-Ensure the application is usable on various screen sizes (desktop, tablet, mobile). 6. Accessibility
-Keyboard Navigation:
-Ensure buttons and inputs are accessible via keyboard.
-Screen Reader Compatibility:
-Use appropriate ARIA roles and labels for assistive technologies.
+7. Error Handling
+   Validation Checks: Handle scenarios for invalid inputs (e.g., empty player names, incorrect bid/trick numbers).
+   User Feedback: Provide feedback for errors (e.g., alerts or messages for invalid actions).
