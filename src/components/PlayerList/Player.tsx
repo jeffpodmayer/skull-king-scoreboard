@@ -9,9 +9,9 @@ interface PlayerProps {
 
 export const Player: React.FC<PlayerProps> = ({ player: { name, score } }) => {
   return (
-    <div>
-      <p>Player: {name}</p>
-      <p>Score: {score} </p>
-    </div>
+    <tr>
+      <td>{name}</td>
+      <td>{score}</td>
+    </tr>
   );
 };
