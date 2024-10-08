@@ -7,7 +7,7 @@ export const PlayerList: React.FC<PlayerListProps> = () => {
 
   return (
     <div>
-      <h3>PlayerList Component </h3>
+      <h2>PlayerList Component </h2>
       <div>
         {players.map((playerName, index) => (
           <Player key={index} player={{ name: playerName, score: 0 }} />
