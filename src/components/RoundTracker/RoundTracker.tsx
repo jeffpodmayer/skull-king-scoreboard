@@ -5,6 +5,7 @@ interface RoundTrackerProps {
   roundBid: number;
   roundTricksWon: number;
   bonusPoints: number;
+  roundScore: number;
 }
 
 export const RoundTracker: React.FC<RoundTrackerProps> = ({
@@ -12,6 +13,7 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
   roundBid,
   roundTricksWon,
   bonusPoints,
+  roundScore,
 }) => {
   return (
     <div>
@@ -20,6 +22,7 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
       <p>Bid: {roundBid}</p>
       <p>Tricks Won: {roundTricksWon}</p>
       <p>Round Bonus Points: {bonusPoints}</p>
+      <p>Round Score: {roundScore}</p>
     </div>
   );
 };
