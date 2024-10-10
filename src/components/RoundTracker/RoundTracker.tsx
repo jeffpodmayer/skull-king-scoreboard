@@ -18,11 +18,25 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
   return (
     <div>
       <h2>Round Tracker Component</h2>
-      <p>Round {roundNumber} </p>
-      <p>Bid: {roundBid}</p>
-      <p>Tricks Won: {roundTricksWon}</p>
-      <p>Round Bonus Points: {bonusPoints}</p>
-      <p>Round Score: {roundScore}</p>
+      <h3>Round: {roundNumber}</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th>Bid</th>
+            <th>Tricks Won</th>
+            <th>Bonus Points</th>
+            <th>Round Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <td>Jeff</td>
+          <td>{roundBid}</td>
+          <td>{roundTricksWon}</td>
+          <td>{bonusPoints}</td>
+          <td>{roundScore}</td>
+        </tbody>
+      </table>
     </div>
   );
 };
