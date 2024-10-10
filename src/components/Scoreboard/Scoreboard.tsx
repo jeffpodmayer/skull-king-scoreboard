@@ -14,9 +14,22 @@ export const Scoreboard: React.FC<ScoreboardProps> = ({
   return (
     <div>
       <h2>Scoreboard Compnonent</h2>
-      <p>Round: {round}</p>
-      <p>Player: {playerName}</p>
-      <p>Score: {roundScore}</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Round</th>
+            <th>{playerName}</th>
+            <th>{playerName}</th>
+            <th>{playerName}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <td>{round}</td>
+          <td>{roundScore}</td>
+          <td>{roundScore}</td>
+          <td>{roundScore}</td>
+        </tbody>
+      </table>
     </div>
   );
 };
