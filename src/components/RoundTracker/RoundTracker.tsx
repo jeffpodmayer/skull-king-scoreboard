@@ -1,20 +1,30 @@
 import React from "react";
+import { useState } from "react";
 
 interface RoundTrackerProps {
   roundNumber: number;
-  roundBid: number;
-  roundTricksWon: number;
-  bonusPoints: number;
-  roundScore: number;
+  onRoundUpdate: (
+    roundBid: number,
+    roundTricksWon: number,
+    bonusPoints: number
+  ) => void;
 }
 
 export const RoundTracker: React.FC<RoundTrackerProps> = ({
   roundNumber,
-  roundBid,
-  roundTricksWon,
-  bonusPoints,
-  roundScore,
+  onRoundUpdate,
 }) => {
+  const [roundBid, setRoundBid] = useState(0);
+  const [roundTricksWon, setRoundTricksWon] = useState(0);
+  const [bonusPoints, setBonusPoints] = useState(0);
+
+  const handleRoundSubmit = () => {
+    onRoundUpdate(roundBid, roundTricksWon, bonusPoints);
+    setRoundBid(0);
+    setRoundTricksWon(0);
+    setBonusPoints(0);
+  };
+
   return (
     <div>
       <h2>Round Tracker Component</h2>
@@ -33,7 +43,12 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
           <td>Jeff</td>
           <td>
             {" "}
-            <input type="number" placeholder="Bid" value={roundBid} />
+            <input
+              type="number"
+              placeholder="Bid"
+              value={roundBid}
+              onChange={(e) => setRoundBid(Number(e.target.value))}
+            />
           </td>
           <td>
             {" "}
@@ -41,6 +56,7 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
               type="number"
               placeholder="Tricks Won"
               value={roundTricksWon}
+              onChange={(e) => setRoundTricksWon(Number(e.target.value))}
             />
           </td>
           <td>
@@ -49,12 +65,12 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
               type="number"
               placeholder="Bonus Points"
               value={bonusPoints}
+              onChange={(e) => setBonusPoints(Number(e.target.value))}
             />
           </td>
-          <td>{roundScore}</td>
         </tbody>
       </table>
-      <button>Submit Round Scores</button>
+      <button onClick={handleRoundSubmit}>Submit Round Scores</button>
     </div>
   );
 };
