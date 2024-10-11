@@ -31,12 +31,30 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
         </thead>
         <tbody>
           <td>Jeff</td>
-          <td>{roundBid}</td>
-          <td>{roundTricksWon}</td>
-          <td>{bonusPoints}</td>
+          <td>
+            {" "}
+            <input type="number" placeholder="Bid" value={roundBid} />
+          </td>
+          <td>
+            {" "}
+            <input
+              type="number"
+              placeholder="Tricks Won"
+              value={roundTricksWon}
+            />
+          </td>
+          <td>
+            {" "}
+            <input
+              type="number"
+              placeholder="Bonus Points"
+              value={bonusPoints}
+            />
+          </td>
           <td>{roundScore}</td>
         </tbody>
       </table>
+      <button>Submit Round Scores</button>
     </div>
   );
 };

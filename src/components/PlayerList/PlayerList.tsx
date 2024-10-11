@@ -38,7 +38,7 @@ export const PlayerList: React.FC<PlayerListProps> = () => {
           placeholder="Enter player name"
           value={newPlayerName}
           onChange={(e) => setNewPlayerName(e.target.value)}
-        />{" "}
+        />
         <button onClick={handleAddPlayer}>Add Player</button>
       </div>
     </div>
