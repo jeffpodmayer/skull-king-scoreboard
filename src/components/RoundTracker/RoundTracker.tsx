@@ -21,12 +21,12 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
   const [roundTricksWon, setRoundTricksWon] = useState(0);
   const [bonusPoints, setBonusPoints] = useState(0);
 
-  const handleRoundSubmit = () => {
-    onRoundUpdate(playerName, roundBid, roundTricksWon, bonusPoints);
-    setRoundBid(0);
-    setRoundTricksWon(0);
-    setBonusPoints(0);
-  };
+  // const handleRoundSubmit = () => {
+  //   onRoundUpdate(playerName, roundBid, roundTricksWon, bonusPoints);
+  //   setRoundBid(0);
+  //   setRoundTricksWon(0);
+  //   setBonusPoints(0);
+  // };
 
   return (
     <div>
@@ -74,7 +74,7 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
           ))}
         </tbody>
       </table>
-      <button onClick={handleRoundSubmit}>Submit Round Scores</button>
+      {/* <button onClick={handleRoundSubmit}>Submit Round Scores</button> */}
     </div>
   );
 };

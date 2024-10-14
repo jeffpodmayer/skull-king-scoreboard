@@ -1,16 +1,11 @@
 import React from "react";
 
 interface ScoreboardProps {
-  playerName: string;
-  round: number;
-  roundScore: number;
+  players: { name: string; score: number }[];
+  rounds: { roundNumber: number; scores: number[] }[];
 }
 
-export const Scoreboard: React.FC<ScoreboardProps> = ({
-  playerName,
-  round,
-  roundScore,
-}) => {
+export const Scoreboard: React.FC<ScoreboardProps> = ({ players, rounds }) => {
   return (
     <div>
       <h2>Scoreboard Compnonent</h2>
@@ -18,16 +13,20 @@ export const Scoreboard: React.FC<ScoreboardProps> = ({
         <thead>
           <tr>
             <th>Round</th>
-            <th>{playerName}</th>
-            <th>{playerName}</th>
-            <th>{playerName}</th>
+            {players.map((player, index) => (
+              <th key={index}>{player.name}</th>
+            ))}
           </tr>
         </thead>
         <tbody>
-          <td>{round}</td>
-          <td>{roundScore}</td>
-          <td>{roundScore}</td>
-          <td>{roundScore}</td>
+          {rounds.map((roundData, roundIndex) => (
+            <tr key={roundIndex}>
+              <td>{roundData.roundNumber}</td>
+              {roundData.scores.map((score, playerIndex) => (
+                <td key={playerIndex}>{score}</td>
+              ))}
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
