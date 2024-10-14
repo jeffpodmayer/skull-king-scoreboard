@@ -7,11 +7,11 @@ interface PlayerProps {
   };
 }
 
-export const Player: React.FC<PlayerProps> = ({ player: { name, score } }) => {
+export const Player: React.FC<PlayerProps> = ({ player }) => {
   return (
     <tr>
-      <td>{name}</td>
-      <td>{score}</td>
+      <td>{player.name}</td>
+      <td>{player.score}</td>
     </tr>
   );
 };

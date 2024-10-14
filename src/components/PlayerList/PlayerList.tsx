@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import { Player } from "./Player";
 
-interface PlayerListProps {}
+interface PlayerListProps {
+  players: { name: string; score: number }[];
+  onAddPlayer: (newPlayerName: string) => void;
+}
 
-export const PlayerList: React.FC<PlayerListProps> = () => {
-  const [players, setPlayers] = useState<{ name: string; score: number }[]>([]);
+export const PlayerList: React.FC<PlayerListProps> = ({
+  players,
+  onAddPlayer,
+}) => {
   const [newPlayerName, setNewPlayerName] = useState("");
 
   const handleAddPlayer = () => {
     if (newPlayerName.trim()) {
-      setPlayers([...players, { name: newPlayerName, score: 0 }]);
+      onAddPlayer(newPlayerName);
       setNewPlayerName("");
     } else {
       alert("Please enter a player name.");

@@ -7,12 +7,23 @@ import { Hero } from "./components/Hero/Hero";
 import "./App.css";
 
 function App() {
+  const [players, setPlayers] = useState<{ name: string; score: number }[]>([]);
   const [roundNumber, setRoundNumber] = useState(1);
   const [roundScores, setRoundScores] = useState<
     { roundNumber: number; roundScore: number }[]
   >([]);
 
+  //Updates Players across all components when new player is added
+  const handleAddPlayer = (newPlayerName: string) => {
+    setPlayers((prevPlayers) => [
+      ...prevPlayers,
+      { name: newPlayerName, score: 0 },
+    ]);
+  };
+
+  //Updates Round when score is submitted
   const handleRoundUpdate = (
+    playerName: string,
     roundBid: number,
     roundTricksWon: number,
     bonusPoints: number
@@ -39,16 +50,13 @@ function App() {
   return (
     <div>
       <Hero />
-      <PlayerList />
+      <PlayerList players={players} onAddPlayer={handleAddPlayer} />
       <RoundTracker
+        players={players}
         roundNumber={roundNumber}
         onRoundUpdate={handleRoundUpdate}
       />
-      <Scoreboard
-        playerName="Jeff"
-        round={roundNumber}
-        roundScore={currentRoundScore}
-      />
+      {/* <Scoreboard round={roundNumber} roundScore={currentRoundScore} /> */}
     </div>
   );
 }

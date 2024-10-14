@@ -2,8 +2,10 @@ import React from "react";
 import { useState } from "react";
 
 interface RoundTrackerProps {
+  players: { name: string; score: number }[];
   roundNumber: number;
   onRoundUpdate: (
+    playerName: string,
     roundBid: number,
     roundTricksWon: number,
     bonusPoints: number
@@ -11,6 +13,7 @@ interface RoundTrackerProps {
 }
 
 export const RoundTracker: React.FC<RoundTrackerProps> = ({
+  players,
   roundNumber,
   onRoundUpdate,
 }) => {
@@ -19,7 +22,7 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
   const [bonusPoints, setBonusPoints] = useState(0);
 
   const handleRoundSubmit = () => {
-    onRoundUpdate(roundBid, roundTricksWon, bonusPoints);
+    onRoundUpdate(playerName, roundBid, roundTricksWon, bonusPoints);
     setRoundBid(0);
     setRoundTricksWon(0);
     setBonusPoints(0);
@@ -40,34 +43,35 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
           </tr>
         </thead>
         <tbody>
-          <td>Jeff</td>
-          <td>
-            {" "}
-            <input
-              type="number"
-              placeholder="Bid"
-              value={roundBid}
-              onChange={(e) => setRoundBid(Number(e.target.value))}
-            />
-          </td>
-          <td>
-            {" "}
-            <input
-              type="number"
-              placeholder="Tricks Won"
-              value={roundTricksWon}
-              onChange={(e) => setRoundTricksWon(Number(e.target.value))}
-            />
-          </td>
-          <td>
-            {" "}
-            <input
-              type="number"
-              placeholder="Bonus Points"
-              value={bonusPoints}
-              onChange={(e) => setBonusPoints(Number(e.target.value))}
-            />
-          </td>
+          {players.map((player) => (
+            <tr key={player.name}>
+              <td>{player.name}</td>
+              <td>
+                <input
+                  type="number"
+                  placeholder="Bid"
+                  value={roundBid}
+                  onChange={(e) => setRoundBid(Number(e.target.value))}
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  placeholder="Tricks Won"
+                  value={roundTricksWon}
+                  onChange={(e) => setRoundTricksWon(Number(e.target.value))}
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  placeholder="Bonus Points"
+                  value={bonusPoints}
+                  onChange={(e) => setBonusPoints(Number(e.target.value))}
+                />
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
       <button onClick={handleRoundSubmit}>Submit Round Scores</button>
