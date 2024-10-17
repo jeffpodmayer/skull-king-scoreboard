@@ -1,50 +1,33 @@
-# React + TypeScript + Vite
+# Skull King Scoreboard Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+The Skull King Scoreboard is a single-page web application built using React and TypeScript. It allows players to easily track their scores while playing the Skull King card game, making score calculation faster and more convenient.
 
-Currently, two official plugins are available:
+## Why?
+Tracking scores manually during the Skull King card game can be cumbersome, especially with its complex scoring system. This application simplifies the process by automating score calculations, allowing players to focus more on the game and less on managing scores.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Quick Start
+To get started with the Skull King Scoreboard Application:
+1. Clone the repository.
+2. Run `npm install` to install the necessary dependencies.
+3. Use `npm run dev` to run the application locally on your machine.
 
-## Expanding the ESLint configuration
+## Usage
+1. Enter the number of players at the start of the game.
+2. Track each player's score for every round using the provided input fields.
+3. The app will automatically calculate the scores and display the leaderboard as the game progresses.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Contributing
+If you'd like to contribute to the Skull King Scoreboard project, follow these steps:
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/new-feature`).
+3. Make your changes and commit (`git commit -am 'Add new feature'`).
+4. Push to the branch (`git push origin feature/new-feature`).
+5. Submit a pull request for review.
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Application Tech Stack
+- **React**
+- **TypeScript**
+- **Node.js**
+- **Vite**
+- **HTML/CSS**
