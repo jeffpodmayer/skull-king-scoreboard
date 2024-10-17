@@ -46,7 +46,6 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
             <th>Bid</th>
             <th>Tricks Won</th>
             <th>Bonus Points</th>
-            <th>Round Score</th>
           </tr>
         </thead>
         <tbody>
