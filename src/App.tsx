@@ -24,6 +24,15 @@ function App() {
     ]);
   };
 
+  //Ensure that bids are updated
+  // const handleUpdateBid = (playerIndex: number, newBid: number) => {
+  //   setPlayers((prevPlayers) =>
+  //     prevPlayers.map((player, index) =>
+  //       index === playerIndex ? { ...player, bid: newBid } : player
+  //     )
+  //   );
+  // };
+
   // Updates the Round when a score is submitted
   const handleRoundUpdate = (
     roundNumber: number,

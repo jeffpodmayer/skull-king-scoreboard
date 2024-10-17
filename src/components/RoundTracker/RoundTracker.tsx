@@ -6,9 +6,9 @@ interface RoundTrackerProps {
   roundNumber: number;
   onRoundUpdate: (
     playerName: string,
-    roundBid: number,
-    roundTricksWon: number,
-    bonusPoints: number
+    roundBid: number[],
+    roundTricksWon: number[],
+    bonusPoints: number[]
   ) => void;
 }
 
