@@ -12,9 +12,9 @@ function App() {
     { roundNumber: number; scores: number[] }[]
   >([]);
   const [roundNumber, setRoundNumber] = useState(1);
-  const [roundScores, setRoundScores] = useState<
-    { roundNumber: number; roundScore: number }[]
-  >([]);
+  // const [roundScores, setRoundScores] = useState<
+  //   { roundNumber: number; roundScore: number }[]
+  // >([]);
 
   // Updates Players across all components when a new player is added
   const handleAddPlayer = (newPlayerName: string) => {
@@ -25,41 +25,25 @@ function App() {
   };
 
   //Ensure that bids are updated
-  // const handleUpdateBid = (playerIndex: number, newBid: number) => {
-  //   setPlayers((prevPlayers) =>
-  //     prevPlayers.map((player, index) =>
-  //       index === playerIndex ? { ...player, bid: newBid } : player
-  //     )
-  //   );
-  // };
+  const handleUpdateBid = (playerIndex: number, newBid: number) => {
+    setPlayers((prevPlayers) =>
+      prevPlayers.map((player, index) =>
+        index === playerIndex ? { ...player, bid: newBid } : player
+      )
+    );
+  };
 
   // Updates the Round when a score is submitted
-  const handleRoundUpdate = (
-    roundNumber: number,
-    newScores: number[],
-    roundBid: number,
-    roundTricksWon: number,
-    bonusPoints: number
-  ) => {
-    const updatedScores = newScores.map((score, index) => {
-      let roundScore = 0;
-      if (roundBid === roundTricksWon) {
-        roundScore = roundBid * 10 + bonusPoints;
-      } else {
-        roundScore = roundBid * -10;
-      }
-      return roundScore;
-    });
-
+  const handleRoundUpdate = (newScores: number[]) => {
     setRounds((prevRounds) => [
       ...prevRounds,
-      { roundNumber, scores: updatedScores },
+      { roundNumber, scores: newScores },
     ]);
 
     setPlayers((prevPlayers) =>
       prevPlayers.map((player, index) => ({
         ...player,
-        score: player.score + updatedScores[index],
+        score: player.score + newScores[index],
       }))
     );
 
