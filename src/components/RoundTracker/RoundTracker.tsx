@@ -4,12 +4,7 @@ import { useState } from "react";
 interface RoundTrackerProps {
   players: { name: string; score: number }[];
   roundNumber: number;
-  onRoundUpdate: (
-    playerName: string,
-    roundBid: number[],
-    roundTricksWon: number[],
-    bonusPoints: number[]
-  ) => void;
+  onRoundUpdate: (newScores: number[]) => void;
 }
 
 export const RoundTracker: React.FC<RoundTrackerProps> = ({
@@ -17,22 +12,47 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
   roundNumber,
   onRoundUpdate,
 }) => {
-  const [roundBid, setRoundBid] = useState(0);
-  const [roundTricksWon, setRoundTricksWon] = useState(0);
-  const [bonusPoints, setBonusPoints] = useState(0);
+  const [roundBid, setRoundBid] = useState<number[]>(
+    Array(players.length).fill(0)
+  );
+  const [roundTricksWon, setRoundTricksWon] = useState<number[]>(
+    Array(players.length).fill(0)
+  );
+  const [bonusPoints, setBonusPoints] = useState<number[]>(
+    Array(players.length).fill(0)
+  );
+
+  const handleInputChange = (
+    index: number,
+    setter: React.Dispatch<React.SetStateAction<number[]>>,
+    value: number
+  ) => {
+    setter((prev) => {
+      const updated = [...prev];
+      updated[index] = value;
+      return updated;
+    });
+  };
 
   const handleRoundSubmit = () => {
-    const newScores = players.map((player) => player.score);
-    onRoundUpdate(
-      roundNumber,
-      newScores,
-      roundBid,
-      roundTricksWon,
-      bonusPoints
-    );
-    setRoundBid(0);
-    setRoundTricksWon(0);
-    setBonusPoints(0);
+    const newScores = players.map((_, index) => {
+      const bid = roundBid[index];
+      const tricks = roundTricksWon[index];
+      const bonus = bonusPoints[index];
+      let score = 0;
+      if (bid === tricks) {
+        score = bid * 10 + bonus;
+      } else {
+        score = bid * -10;
+      }
+      return score;
+    });
+
+    onRoundUpdate(newScores);
+
+    setRoundBid(Array(players.length).fill(0));
+    setRoundTricksWon(Array(players.length).fill(0));
+    setBonusPoints(Array(players.length).fill(0));
   };
 
   return (
@@ -49,31 +69,49 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
           </tr>
         </thead>
         <tbody>
-          {players.map((player) => (
+          {players.map((player, index) => (
             <tr key={player.name}>
               <td>{player.name}</td>
               <td>
                 <input
                   type="number"
                   placeholder="Bid"
-                  value={roundBid}
-                  onChange={(e) => setRoundBid(Number(e.target.value))}
+                  value={roundBid[index]}
+                  onChange={(e) =>
+                    handleInputChange(
+                      index,
+                      setRoundBid,
+                      Number(e.target.value)
+                    )
+                  }
                 />
               </td>
               <td>
                 <input
                   type="number"
                   placeholder="Tricks Won"
-                  value={roundTricksWon}
-                  onChange={(e) => setRoundTricksWon(Number(e.target.value))}
+                  value={roundTricksWon[index]}
+                  onChange={(e) =>
+                    handleInputChange(
+                      index,
+                      setRoundBid,
+                      Number(e.target.value)
+                    )
+                  }
                 />
               </td>
               <td>
                 <input
                   type="number"
                   placeholder="Bonus Points"
-                  value={bonusPoints}
-                  onChange={(e) => setBonusPoints(Number(e.target.value))}
+                  value={bonusPoints[index]}
+                  onChange={(e) =>
+                    handleInputChange(
+                      index,
+                      setRoundBid,
+                      Number(e.target.value)
+                    )
+                  }
                 />
               </td>
             </tr>
