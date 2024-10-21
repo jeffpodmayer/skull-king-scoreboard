@@ -69,7 +69,7 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
           </tr>
         </thead>
         <tbody>
-          {players.map((player) => (
+          {players.map((player, index) => (
             <tr key={player.name}>
               <td>{player.name}</td>
               <td>
@@ -90,16 +90,28 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
                 <input
                   type="number"
                   placeholder="Tricks Won"
-                  value={roundTricksWon}
-                  onChange={(e) => setRoundTricksWon(Number(e.target.value))}
+                  value={roundTricksWon[index]}
+                  onChange={(e) =>
+                    handleInputChange(
+                      index,
+                      setRoundBid,
+                      Number(e.target.value)
+                    )
+                  }
                 />
               </td>
               <td>
                 <input
                   type="number"
                   placeholder="Bonus Points"
-                  value={bonusPoints}
-                  onChange={(e) => setBonusPoints(Number(e.target.value))}
+                  value={bonusPoints[index]}
+                  onChange={(e) =>
+                    handleInputChange(
+                      index,
+                      setRoundBid,
+                      Number(e.target.value)
+                    )
+                  }
                 />
               </td>
             </tr>
