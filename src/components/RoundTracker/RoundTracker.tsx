@@ -45,6 +45,7 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
       } else {
         score = bid * -10;
       }
+      ///need to add logic here if the person bids 0 and wins 0 then they get a 10 * whatever number round it is.
       return score;
     });
 
