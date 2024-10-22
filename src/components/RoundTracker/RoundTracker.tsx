@@ -95,7 +95,7 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
                   onChange={(e) =>
                     handleInputChange(
                       index,
-                      setRoundBid,
+                      setRoundTricksWon,
                       Number(e.target.value)
                     )
                   }
@@ -109,7 +109,7 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
                   onChange={(e) =>
                     handleInputChange(
                       index,
-                      setRoundBid,
+                      setBonusPoints,
                       Number(e.target.value)
                     )
                   }
