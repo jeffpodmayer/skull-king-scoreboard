@@ -39,6 +39,7 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
       const bid = roundBid[index];
       const tricks = roundTricksWon[index];
       const bonus = bonusPoints[index];
+
       let score = 0;
       if (bid === 0) {
         if (tricks === 0) {

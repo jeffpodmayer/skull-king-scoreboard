@@ -1,7 +1,7 @@
 import React from "react";
 
 interface ScoreboardProps {
-  players: { name: string; score: number }[];
+  players: { name: string }[];
   rounds: { roundNumber: number; scores: number[] }[];
 }
 
