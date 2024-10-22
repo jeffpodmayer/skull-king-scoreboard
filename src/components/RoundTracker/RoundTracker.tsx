@@ -40,12 +40,20 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
       const tricks = roundTricksWon[index];
       const bonus = bonusPoints[index];
       let score = 0;
-      if (bid === tricks) {
-        score = bid * 10 + bonus;
+      if (bid === 0) {
+        if (tricks === 0) {
+          score = roundNumber * 10; // successful 0 bid
+        } else {
+          score = roundNumber * -10; // failed 0 bid
+        }
       } else {
-        score = bid * -10;
+        // Regular bid
+        if (bid === tricks) {
+          score = bid * 10 + bonus; // Bid met with bonus points
+        } else {
+          score = bid * -10; // Failed bid
+        }
       }
-      ///need to add logic here if the person bids 0 and wins 0 then they get a 10 * whatever number round it is.
       return score;
     });
 
