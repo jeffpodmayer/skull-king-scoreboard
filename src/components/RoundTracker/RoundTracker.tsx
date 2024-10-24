@@ -84,6 +84,7 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
               <td>
                 <input
                   type="number"
+                  min="0"
                   placeholder="Bid"
                   value={roundBid[index]}
                   onChange={(e) =>
@@ -98,6 +99,7 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
               <td>
                 <input
                   type="number"
+                  min="0"
                   placeholder="Tricks Won"
                   value={roundTricksWon[index]}
                   onChange={(e) =>
@@ -112,6 +114,7 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
               <td>
                 <input
                   type="number"
+                  min="0"
                   placeholder="Bonus Points"
                   value={bonusPoints[index]}
                   onChange={(e) =>
