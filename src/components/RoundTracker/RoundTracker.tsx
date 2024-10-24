@@ -65,9 +65,11 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
     setBonusPoints(Array(players.length).fill(0));
   };
 
+  const isGameOver = roundNumber > 10;
+
   return (
     <div>
-      <h3>Round: {roundNumber}</h3>
+      <h3>{isGameOver ? "Game Over" : `Round: ${roundNumber}`}</h3>
       <table>
         <thead>
           <tr>
@@ -130,7 +132,9 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
           ))}
         </tbody>
       </table>
-      <button onClick={handleRoundSubmit}>Submit Round Scores</button>
+      <button onClick={handleRoundSubmit} disabled={isGameOver}>
+        Submit Round Scores
+      </button>
     </div>
   );
 };
