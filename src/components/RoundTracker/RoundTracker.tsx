@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 interface RoundTrackerProps {
-  players: { name: string; score: number }[];
+  players: { name: string }[];
   roundNumber: number;
   onRoundUpdate: (newScores: number[]) => void;
 }

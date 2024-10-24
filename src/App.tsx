@@ -7,20 +7,16 @@ import { Hero } from "./components/Hero/Hero";
 import "./App.css";
 
 function App() {
-  const [players, setPlayers] = useState<{ name: string; score: number }[]>([]); // change into an array of strings to jsut be an array of playernames
+  const [players, setPlayers] = useState<string[]>([]); // Now just an array of player names
   const [rounds, setRounds] = useState<
     { roundNumber: number; scores: number[] }[]
   >([]);
   const [roundNumber, setRoundNumber] = useState(1);
 
   const handleAddPlayer = (newPlayerName: string) => {
-    setPlayers((prevPlayers) => [
-      ...prevPlayers,
-      { name: newPlayerName, score: 0 },
-    ]);
+    setPlayers((prevPlayers) => [...prevPlayers, newPlayerName]);
   };
 
-  // Updates the Round when a score is submitted
   const handleRoundUpdate = (newScores: number[]) => {
     setRounds((prevRounds) => [
       ...prevRounds,
@@ -28,16 +24,6 @@ function App() {
     ]);
     setRoundNumber((prev) => prev + 1);
   };
-
-  // // could get rid of this and move it into the scoreboard component
-  // // conside only storing the round scores - compute player score using the rounnd scores on the fly
-  // // extract the compting fro overall player scores into it's own file
-  // setPlayers((prevPlayers) =>
-  //   prevPlayers.map((player, index) => ({
-  //     ...player,
-  //     score: player.score + newScores[index],
-  //   }))
-  // );
 
   return (
     <div>

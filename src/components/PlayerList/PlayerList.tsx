@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Player } from "./Player";
 
 interface PlayerListProps {
-  players: { name: string; score: number }[];
+  players: string[];
   onAddPlayer: (newPlayerName: string) => void;
 }
 
@@ -28,12 +27,13 @@ export const PlayerList: React.FC<PlayerListProps> = ({
         <thead>
           <tr>
             <th>Player</th>
-            <th>Score</th>
           </tr>
         </thead>
         <tbody>
           {players.map((player, index) => (
-            <Player key={index} player={player} />
+            <tr key={index}>
+              <td>{player}</td>
+            </tr>
           ))}
         </tbody>
       </table>
