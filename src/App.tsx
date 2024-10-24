@@ -22,7 +22,12 @@ function App() {
       ...prevRounds,
       { roundNumber, scores: newScores },
     ]);
-    setRoundNumber((prev) => prev + 1);
+
+    if (roundNumber < 10) {
+      setRoundNumber((prev) => prev + 1);
+    } else {
+      setRoundNumber(11);
+    }
   };
 
   return (
