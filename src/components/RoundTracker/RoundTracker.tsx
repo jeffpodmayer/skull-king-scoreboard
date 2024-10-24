@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 interface RoundTrackerProps {
-  players: { name: string }[];
+  players: string[];
   roundNumber: number;
   onRoundUpdate: (newScores: number[]) => void;
 }
@@ -67,7 +67,6 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
 
   return (
     <div>
-      <h2>Round Tracker Component</h2>
       <h3>Round: {roundNumber}</h3>
       <table>
         <thead>
@@ -80,8 +79,8 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
         </thead>
         <tbody>
           {players.map((player, index) => (
-            <tr key={player.name}>
-              <td>{player.name}</td>
+            <tr key={player}>
+              <td>{player}</td>
               <td>
                 <input
                   type="number"
