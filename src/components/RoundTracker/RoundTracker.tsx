@@ -4,11 +4,11 @@ interface RoundTrackerProps {
   players: string[];
   roundNumber: number;
   onRoundUpdate: (newScores: number[]) => void;
-  roundBid: number[]; // Add this
-  setRoundBid: React.Dispatch<React.SetStateAction<number[]>>; // Add this
-  roundTricksWon: number[]; // Add this
-  setRoundTricksWon: React.Dispatch<React.SetStateAction<number[]>>; // Add this
-  bonusPoints: number[]; // Add this
+  roundBid: number[];
+  setRoundBid: React.Dispatch<React.SetStateAction<number[]>>;
+  roundTricksWon: number[];
+  setRoundTricksWon: React.Dispatch<React.SetStateAction<number[]>>;
+  bonusPoints: number[];
   setBonusPoints: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
@@ -16,12 +16,12 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
   players,
   roundNumber,
   onRoundUpdate,
-  roundBid, // Use the prop
-  setRoundBid, // Use the setter from props
-  roundTricksWon, // Use the prop
-  setRoundTricksWon, // Use the setter from props
-  bonusPoints, // Use the prop
-  setBonusPoints, // Use the setter from props
+  roundBid,
+  setRoundBid,
+  roundTricksWon,
+  setRoundTricksWon,
+  bonusPoints,
+  setBonusPoints,
 }) => {
   const handleInputChange = (
     index: number,

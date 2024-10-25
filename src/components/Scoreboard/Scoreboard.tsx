@@ -6,7 +6,6 @@ interface ScoreboardProps {
 }
 
 export const Scoreboard: React.FC<ScoreboardProps> = ({ players, rounds }) => {
-  // Function to compute total score for each player
   const computeTotalScores = () => {
     return players.map((_, playerIndex) => {
       return rounds.reduce((totalScore, round) => {
