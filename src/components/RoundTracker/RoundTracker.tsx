@@ -1,27 +1,28 @@
 import React from "react";
-import { useState } from "react";
 
 interface RoundTrackerProps {
   players: string[];
   roundNumber: number;
   onRoundUpdate: (newScores: number[]) => void;
+  roundBid: number[]; // Add this
+  setRoundBid: React.Dispatch<React.SetStateAction<number[]>>; // Add this
+  roundTricksWon: number[]; // Add this
+  setRoundTricksWon: React.Dispatch<React.SetStateAction<number[]>>; // Add this
+  bonusPoints: number[]; // Add this
+  setBonusPoints: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
 export const RoundTracker: React.FC<RoundTrackerProps> = ({
   players,
   roundNumber,
   onRoundUpdate,
+  roundBid, // Use the prop
+  setRoundBid, // Use the setter from props
+  roundTricksWon, // Use the prop
+  setRoundTricksWon, // Use the setter from props
+  bonusPoints, // Use the prop
+  setBonusPoints, // Use the setter from props
 }) => {
-  const [roundBid, setRoundBid] = useState<number[]>(
-    Array(players.length).fill(0)
-  );
-  const [roundTricksWon, setRoundTricksWon] = useState<number[]>(
-    Array(players.length).fill(0)
-  );
-  const [bonusPoints, setBonusPoints] = useState<number[]>(
-    Array(players.length).fill(0)
-  );
-
   const handleInputChange = (
     index: number,
     setter: React.Dispatch<React.SetStateAction<number[]>>,
