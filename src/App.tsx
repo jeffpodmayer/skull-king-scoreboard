@@ -7,14 +7,20 @@ import { Hero } from "./components/Hero/Hero";
 import "./App.css";
 
 function App() {
-  const [players, setPlayers] = useState<string[]>([]); // Now just an array of player names
+  const [players, setPlayers] = useState<string[]>([]);
   const [rounds, setRounds] = useState<
     { roundNumber: number; scores: number[] }[]
   >([]);
   const [roundNumber, setRoundNumber] = useState(1);
+  const [roundBid, setRoundBid] = useState<number[]>([]);
+  const [roundTricksWon, setRoundTricksWon] = useState<number[]>([]);
+  const [bonusPoints, setBonusPoints] = useState<number[]>([]);
 
   const handleAddPlayer = (newPlayerName: string) => {
     setPlayers((prevPlayers) => [...prevPlayers, newPlayerName]);
+    setRoundBid((prev) => [...prev, 0]);
+    setRoundTricksWon((prev) => [...prev, 0]);
+    setBonusPoints((prev) => [...prev, 0]);
   };
 
   const handleRoundUpdate = (newScores: number[]) => {
@@ -38,6 +44,12 @@ function App() {
         players={players}
         roundNumber={roundNumber}
         onRoundUpdate={handleRoundUpdate}
+        roundBid={roundBid}
+        setRoundBid={setRoundBid}
+        roundTricksWon={roundTricksWon}
+        setRoundTricksWon={setRoundTricksWon}
+        bonusPoints={bonusPoints}
+        setBonusPoints={setBonusPoints}
       />
       <Scoreboard players={players} rounds={rounds} />
     </div>
