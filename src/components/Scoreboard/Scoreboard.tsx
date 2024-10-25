@@ -1,4 +1,5 @@
 import React from "react";
+import { computeTotalScores } from "../../utils/ScoreCalculator";
 
 interface ScoreboardProps {
   players: string[];
@@ -6,16 +7,7 @@ interface ScoreboardProps {
 }
 
 export const Scoreboard: React.FC<ScoreboardProps> = ({ players, rounds }) => {
-  const computeTotalScores = () => {
-    return players.map((_, playerIndex) => {
-      return rounds.reduce((totalScore, round) => {
-        return totalScore + round.scores[playerIndex];
-      }, 0);
-    });
-  };
-
-  const totalScores = computeTotalScores();
-
+  const totalScores = computeTotalScores(players, rounds);
   return (
     <div>
       <h2>Scoreboard</h2>

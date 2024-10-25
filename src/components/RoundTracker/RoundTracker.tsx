@@ -1,4 +1,5 @@
 import React from "react";
+import { calculateNewScores } from "../../utils/ScoreCalculator";
 
 interface RoundTrackerProps {
   players: string[];
@@ -36,29 +37,13 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
   };
 
   const handleRoundSubmit = () => {
-    const newScores = players.map((_, index) => {
-      const bid = roundBid[index];
-      const tricks = roundTricksWon[index];
-      const bonus = bonusPoints[index];
-
-      let score = 0;
-      if (bid === 0) {
-        if (tricks === 0) {
-          score = roundNumber * 10; // successful 0 bid
-        } else {
-          score = roundNumber * -10; // failed 0 bid
-        }
-      } else {
-        // Regular bid
-        if (bid === tricks) {
-          score = bid * 10 + bonus; // Bid met with bonus points
-        } else {
-          score = bid * -10; // Failed bid
-        }
-      }
-      return score;
-    });
-
+    const newScores = calculateNewScores(
+      players,
+      roundBid,
+      roundTricksWon,
+      bonusPoints,
+      roundNumber
+    );
     onRoundUpdate(newScores);
 
     setRoundBid(Array(players.length).fill(0));
