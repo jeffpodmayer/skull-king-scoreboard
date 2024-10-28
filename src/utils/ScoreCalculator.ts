@@ -26,7 +26,7 @@ export const calculateNewScores = (
     let score = 0;
     if (bid === 0) {
       if (tricks === 0) {
-        score = roundNumber * 10; // successful 0 bid
+        score = roundNumber * 10 + bonus; // successful 0 bid
       } else {
         score = roundNumber * -10; // failed 0 bid
       }
