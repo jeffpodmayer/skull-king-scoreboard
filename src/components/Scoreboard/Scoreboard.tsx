@@ -8,6 +8,12 @@ interface ScoreboardProps {
 
 export const Scoreboard: React.FC<ScoreboardProps> = ({ players, rounds }) => {
   const totalScores = computeTotalScores(players, rounds);
+
+  // Combine players and their scores, then sort by score descending
+  const sortedPlayers = players
+    .map((player, index) => ({ name: player, score: totalScores[index] }))
+    .sort((a, b) => b.score - a.score);
+
   return (
     <div>
       <h2>Scoreboard</h2>
@@ -19,10 +25,10 @@ export const Scoreboard: React.FC<ScoreboardProps> = ({ players, rounds }) => {
           </tr>
         </thead>
         <tbody>
-          {players.map((player, index) => (
+          {sortedPlayers.map((player, index) => (
             <tr key={index}>
-              <td>{player}</td>
-              <td>{totalScores[index]}</td>
+              <td>{player.name}</td>
+              <td>{player.score}</td>
             </tr>
           ))}
         </tbody>
