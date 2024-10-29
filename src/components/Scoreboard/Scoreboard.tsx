@@ -34,7 +34,7 @@ export const Scoreboard: React.FC<ScoreboardProps> = ({ players, rounds }) => {
         </tbody>
       </table>
 
-      <h3>Round-by-Round Scores</h3>
+      <h3>Round Scores</h3>
       <table>
         <thead>
           <tr>

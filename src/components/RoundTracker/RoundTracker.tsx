@@ -1,5 +1,6 @@
 import React from "react";
 import { calculateNewScores } from "../../utils/ScoreCalculator";
+import UserIcon from "../../assets/icons/close_icon.png";
 
 interface RoundTrackerProps {
   players: string[];
@@ -68,7 +69,18 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
         <tbody>
           {players.map((player, index) => (
             <tr key={player}>
-              <td>{player}</td>
+              <td>
+                <img
+                  src={UserIcon}
+                  alt="Remove Player Icon"
+                  style={{
+                    width: "20px",
+                    marginRight: "3px",
+                    marginBottom: "-3px",
+                  }}
+                />
+                {player}
+              </td>
               <td>
                 <input
                   type="number"
