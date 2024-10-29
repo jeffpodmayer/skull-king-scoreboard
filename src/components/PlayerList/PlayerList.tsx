@@ -5,13 +5,25 @@ interface PlayerListProps {
   onAddPlayer: (newPlayerName: string) => void;
 }
 
-export const PlayerList: React.FC<PlayerListProps> = ({ onAddPlayer }) => {
+export const PlayerList: React.FC<PlayerListProps> = ({
+  players,
+  onAddPlayer,
+}) => {
   const [newPlayerName, setNewPlayerName] = useState("");
+  const [showWarning, setShowWarning] = useState(false);
+  const maxPlayers = 6;
 
   const handleAddPlayer = () => {
-    if (newPlayerName.trim()) {
+    if (players.length >= maxPlayers) {
+      setShowWarning(true);
+      setTimeout(() => {
+        setShowWarning(false);
+      }, 2000);
+      setNewPlayerName("");
+    } else if (newPlayerName.trim()) {
       onAddPlayer(newPlayerName);
       setNewPlayerName("");
+      setShowWarning(false);
     } else {
       alert("Please enter a player name.");
     }
@@ -26,6 +38,9 @@ export const PlayerList: React.FC<PlayerListProps> = ({ onAddPlayer }) => {
         onChange={(e) => setNewPlayerName(e.target.value)}
       />
       <button onClick={handleAddPlayer}>Add Player</button>
+      {showWarning && (
+        <p style={{ color: "red" }}>Maximum of {maxPlayers} players reached.</p>
+      )}
     </div>
   );
 };
