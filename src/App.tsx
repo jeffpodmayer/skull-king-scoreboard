@@ -3,8 +3,7 @@ import { PlayerList } from "./components/PlayerList/PlayerList";
 import { RoundTracker } from "./components/RoundTracker/RoundTracker";
 import { Scoreboard } from "./components/Scoreboard/Scoreboard";
 import { Hero } from "./components/Hero/Hero";
-
-import "./App.css";
+import "./styles/global.css";
 
 function App() {
   const [players, setPlayers] = useState<string[]>([]);

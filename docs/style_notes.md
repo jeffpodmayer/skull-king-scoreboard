@@ -8,6 +8,8 @@
 - Alternative: Dark Ocean Blue for a moody, nighttime ocean feel.
   Hex: #2C3E50
 
+## Font
+
 ## Font Color
 
 - Dark Charcoal or Black: Deep, easy-to-read, and resembles inked text on parchment. Perfect for main text.
