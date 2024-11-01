@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PlayerList } from "./components/PlayerList/PlayerList";
+import { PlayerList } from "./components/AddPlayer/AddPlayer";
 import { RoundTracker } from "./components/RoundTracker/RoundTracker";
 import { Scoreboard } from "./components/Scoreboard/Scoreboard";
 import { Hero } from "./components/Hero/Hero";
