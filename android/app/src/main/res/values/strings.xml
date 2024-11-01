@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Skull King Scorekeeper</string>
+    <string name="title_activity_main">Skull King Scorekeeper</string>
+    <string name="package_name">com.skullkingscoreboard.app</string>
+    <string name="custom_url_scheme">com.skullkingscoreboard.app</string>
+</resources>
