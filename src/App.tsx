@@ -36,7 +36,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="app-container">
       <Hero />
       <PlayerList players={players} onAddPlayer={handleAddPlayer} />
       <RoundTracker
