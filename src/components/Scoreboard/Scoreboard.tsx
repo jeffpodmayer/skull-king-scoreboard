@@ -16,7 +16,7 @@ export const Scoreboard: React.FC<ScoreboardProps> = ({ players, rounds }) => {
 
   return (
     <div>
-      <h2>Scoreboard</h2>
+      <h3>Scoreboard</h3>
       <table>
         <thead>
           <tr>

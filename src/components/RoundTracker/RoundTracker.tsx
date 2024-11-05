@@ -1,7 +1,7 @@
 import React from "react";
 import { calculateNewScores } from "../../utils/ScoreCalculator";
 import UserIcon from "../../assets/icons/close_icon.png";
-
+import styles from "./RoundTracker.module.css";
 interface RoundTrackerProps {
   players: string[];
   roundNumber: number;
@@ -55,84 +55,86 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
   const isGameOver = roundNumber > 10;
 
   return (
-    <div>
-      <h3>{isGameOver ? "Game Over" : `Round: ${roundNumber}`}</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Player</th>
-            <th>Bid</th>
-            <th>Tricks Won</th>
-            <th>Bonus Points</th>
-          </tr>
-        </thead>
-        <tbody>
-          {players.map((player, index) => (
-            <tr key={player}>
-              <td>
-                <img
-                  src={UserIcon}
-                  alt="Remove Player Icon"
-                  style={{
-                    width: "20px",
-                    marginRight: "3px",
-                    marginBottom: "-3px",
-                  }}
-                />
-                {player}
-              </td>
-              <td>
-                <input
-                  type="number"
-                  min="0"
-                  placeholder="Bid"
-                  value={roundBid[index]}
-                  onChange={(e) =>
-                    handleInputChange(
-                      index,
-                      setRoundBid,
-                      Number(e.target.value)
-                    )
-                  }
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  min="0"
-                  placeholder="Tricks Won"
-                  value={roundTricksWon[index]}
-                  onChange={(e) =>
-                    handleInputChange(
-                      index,
-                      setRoundTricksWon,
-                      Number(e.target.value)
-                    )
-                  }
-                />
-              </td>
-              <td>
-                <input
-                  type="number"
-                  min="0"
-                  placeholder="Bonus Points"
-                  value={bonusPoints[index]}
-                  onChange={(e) =>
-                    handleInputChange(
-                      index,
-                      setBonusPoints,
-                      Number(e.target.value)
-                    )
-                  }
-                />
-              </td>
+    <div className={styles.round_tracker_container}>
+      <div className={styles.round_tracker}>
+        <h3>{isGameOver ? "Game Over" : `Round: ${roundNumber}`}</h3>
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Bid</th>
+              <th>Tricks Won</th>
+              <th>Bonus Points</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-      <button onClick={handleRoundSubmit} disabled={isGameOver}>
-        Submit Round Scores
-      </button>
+          </thead>
+          <tbody>
+            {players.map((player, index) => (
+              <tr key={player}>
+                <td>
+                  <img
+                    src={UserIcon}
+                    alt="Remove Player Icon"
+                    style={{
+                      width: "20px",
+                      marginRight: "3px",
+                      marginBottom: "-3px",
+                    }}
+                  />
+                  {player}
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    placeholder="Bid"
+                    value={roundBid[index]}
+                    onChange={(e) =>
+                      handleInputChange(
+                        index,
+                        setRoundBid,
+                        Number(e.target.value)
+                      )
+                    }
+                  />
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    placeholder="Tricks Won"
+                    value={roundTricksWon[index]}
+                    onChange={(e) =>
+                      handleInputChange(
+                        index,
+                        setRoundTricksWon,
+                        Number(e.target.value)
+                      )
+                    }
+                  />
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    placeholder="Bonus Points"
+                    value={bonusPoints[index]}
+                    onChange={(e) =>
+                      handleInputChange(
+                        index,
+                        setBonusPoints,
+                        Number(e.target.value)
+                      )
+                    }
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <button onClick={handleRoundSubmit} disabled={isGameOver}>
+          Submit Round Scores
+        </button>
+      </div>
     </div>
   );
 };

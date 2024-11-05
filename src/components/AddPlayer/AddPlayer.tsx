@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./AddPlayer.module.css";
+import styles from "./AddPlayer.module.css";
 
 interface AddPlayerProps {
   players: string[];
@@ -31,7 +31,7 @@ export const PlayerList: React.FC<AddPlayerProps> = ({
   };
 
   return (
-    <div className="add-player">
+    <div className={styles.add_player}>
       <input
         type="text"
         placeholder="Enter player name"
