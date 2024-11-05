@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./AddPlayer.module.css";
 
 interface AddPlayerProps {
   players: string[];
@@ -30,7 +31,7 @@ export const PlayerList: React.FC<AddPlayerProps> = ({
   };
 
   return (
-    <div>
+    <div className="add-player">
       <input
         type="text"
         placeholder="Enter player name"
