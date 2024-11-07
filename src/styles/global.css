@@ -9,7 +9,7 @@
 .app-container {
   display: grid;
   place-items: center;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   margin: 0;
   padding: 0;
@@ -25,11 +25,11 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  border: 3px solid #1c1b18;
   font-family: "Treasure Map Deadhand", sans-serif;
   color: var(--text-color);
   /* Set the parchment texture as the background */
   background-image: url("../assets/images/parchment.jpg");
+  background-attachment: fixed;
   background-size: cover; /* Ensures the image covers the entire page */
   background-position: center center; /* Centers the image */
   background-repeat: no-repeat; /* Ensures the image doesn't repeat */
