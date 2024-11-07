@@ -25,14 +25,33 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  position: relative;
+  z-index: 0;
   font-family: "Treasure Map Deadhand", sans-serif;
   color: var(--text-color);
-  /* Set the parchment texture as the background */
-  background-image: url("../assets/images/parchment.jpg");
+  background: url("../assets/images/parchment.jpg");
   background-attachment: fixed;
   background-size: cover; /* Ensures the image covers the entire page */
   background-position: center center; /* Centers the image */
   background-repeat: no-repeat; /* Ensures the image doesn't repeat */
+}
+
+html::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 17%; /* Adjust the size of the faded area */
+  height: 12%; /* Adjust the size of the faded area */
+  border-bottom-left-radius: 210px;
+  background: linear-gradient(
+    to bottom left,
+    rgba(0, 0, 0),
+    /* Dark fade */ rgba(0, 0, 0, 0.7)
+      /* Transparent towards the bottom-right */
+  );
+  pointer-events: none;
+  z-index: 1; /* Ensure it's below the burned corner */
 }
 
 h1,
@@ -50,10 +69,6 @@ h3 {
   font-size: 3.2em;
 }
 
-tr {
-  font-size: 1.2em;
-}
-
 button {
   border-radius: 8px;
   border: none;
@@ -67,22 +82,33 @@ button {
 }
 
 button:hover {
-  border-color: var(--secondary-color);
   background-color: var(--secondary-color);
   color: var(--button-color);
-}
-
-button:focus,
-button:focus-visible,
-button:active {
-  transform: translateY(1px);
 }
 
 input {
   border-radius: 8px;
   background-color: var(--primary-color);
-  opacity: 0.8;
   color: whitesmoke;
   font-family: inherit;
   font-size: 1.5em;
+}
+
+/* Burned corner */
+.burned-corner {
+  position: absolute;
+  top: 0;
+  right: 0; /* Position in top-right corner */
+  width: 200px; /* Size of the corner */
+  height: 200px;
+  z-index: 2; /* Ensures it is above the faded area */
+  mix-blend-mode: multiply; /* Blends with background */
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .burned-corner {
+    width: 100px;
+    height: 100px;
+  }
 }
