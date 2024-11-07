@@ -1,0 +1,3 @@
+.scoreboard-container {
+  min-height: 100%; /* Forces this container to take up the full height of its parent */
+}
