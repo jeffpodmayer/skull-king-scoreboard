@@ -34,7 +34,7 @@ export const PlayerList: React.FC<AddPlayerProps> = ({
     <div className={styles.add_player}>
       <input
         type="text"
-        placeholder="Enter player name"
+        placeholder="Enter Player Name"
         value={newPlayerName}
         onChange={(e) => setNewPlayerName(e.target.value)}
       />

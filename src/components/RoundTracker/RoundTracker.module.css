@@ -18,3 +18,14 @@
 th {
   font-size: 30px;
 }
+
+table td:first-child {
+  font-size: 30px;
+  padding-right: 10px;
+}
+
+.round_tracker input {
+  text-align: center;
+  width: 7em;
+  margin: 1px;
+}
