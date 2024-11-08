@@ -12,6 +12,7 @@ interface RoundTrackerProps {
   setRoundTricksWon: React.Dispatch<React.SetStateAction<number[]>>;
   bonusPoints: number[];
   setBonusPoints: React.Dispatch<React.SetStateAction<number[]>>;
+  removePlayer: (playerToRemove: string) => void;
 }
 
 export const RoundTracker: React.FC<RoundTrackerProps> = ({
@@ -24,6 +25,7 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
   setRoundTricksWon,
   bonusPoints,
   setBonusPoints,
+  removePlayer,
 }) => {
   const handleInputChange = (
     index: number,
@@ -79,6 +81,7 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
                       marginRight: "3px",
                       marginBottom: "-3px",
                     }}
+                    onClick={() => removePlayer(player)}
                   />
                   {player}
                 </td>

@@ -22,6 +22,10 @@ function App() {
     setBonusPoints((prev) => [...prev, 0]);
   };
 
+  const removePlayer = (playerToRemove: string) => {
+    setPlayers(players.filter((player) => player !== playerToRemove));
+  };
+
   const handleRoundUpdate = (newScores: number[]) => {
     setRounds((prevRounds) => [
       ...prevRounds,
@@ -49,6 +53,7 @@ function App() {
         setRoundTricksWon={setRoundTricksWon}
         bonusPoints={bonusPoints}
         setBonusPoints={setBonusPoints}
+        removePlayer={removePlayer}
       />
       <Scoreboard players={players} rounds={rounds} />
     </div>

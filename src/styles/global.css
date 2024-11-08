@@ -27,14 +27,13 @@ body {
   padding: 0;
   height: 100%;
   position: relative;
-  z-index: 3;
   font-family: "Treasure Map Deadhand", sans-serif;
   color: var(--text-color);
   background: url("../assets/images/parchment.jpg");
   background-attachment: fixed;
-  background-size: cover; /* Ensures the image covers the entire page */
-  background-position: center center; /* Centers the image */
-  background-repeat: no-repeat; /* Ensures the image doesn't repeat */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 h1,
