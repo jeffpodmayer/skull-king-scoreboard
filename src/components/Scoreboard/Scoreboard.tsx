@@ -17,8 +17,7 @@ export const Scoreboard: React.FC<ScoreboardProps> = ({ players, rounds }) => {
 
   return (
     <div className={styles.scoreboard_container}>
-      <div>
-        <h3>Scoreboard</h3>
+      <div className={styles.total_score_container}>
         <table>
           <thead>
             <tr>
@@ -35,29 +34,29 @@ export const Scoreboard: React.FC<ScoreboardProps> = ({ players, rounds }) => {
             ))}
           </tbody>
         </table>
+      </div>
 
-        <h3>Round Scores</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Round</th>
-              {players.map((player, index) => (
-                <th key={index}>{player}</th>
+      <h3>Round Scores</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Round</th>
+            {players.map((player, index) => (
+              <th key={index}>{player}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rounds.map((round, roundIndex) => (
+            <tr key={roundIndex}>
+              <td>{round.roundNumber}</td>
+              {round.scores.map((score, playerIndex) => (
+                <td key={playerIndex}>{score}</td>
               ))}
             </tr>
-          </thead>
-          <tbody>
-            {rounds.map((round, roundIndex) => (
-              <tr key={roundIndex}>
-                <td>{round.roundNumber}</td>
-                {round.scores.map((score, playerIndex) => (
-                  <td key={playerIndex}>{score}</td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

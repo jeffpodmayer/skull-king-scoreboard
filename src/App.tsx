@@ -4,7 +4,6 @@ import { RoundTracker } from "./components/RoundTracker/RoundTracker";
 import { Scoreboard } from "./components/Scoreboard/Scoreboard";
 import { Hero } from "./components/Hero/Hero";
 import "./styles/global.css";
-import BurnedCorner from "../src/assets/images/Burn1.jpg";
 
 function App() {
   const [players, setPlayers] = useState<string[]>([]);
@@ -38,7 +37,6 @@ function App() {
 
   return (
     <div className="app-container">
-      <img src={BurnedCorner} alt="Burned corner" className="burned-corner" />
       <Hero />
       <PlayerList players={players} onAddPlayer={handleAddPlayer} />
       <RoundTracker

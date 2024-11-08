@@ -1,7 +1,6 @@
 .round_tracker_container {
   width: 90%;
   border-top: 2px dashed var(--text-color);
-  border-bottom: 2px dashed var(--text-color);
   position: relative;
   padding-bottom: 30px;
 }
@@ -13,15 +12,6 @@
 }
 .round_tracker button {
   margin: 1em;
-}
-
-th {
-  font-size: 30px;
-}
-
-table td:first-child {
-  font-size: 30px;
-  padding-right: 10px;
 }
 
 .round_tracker input {

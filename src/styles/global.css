@@ -7,6 +7,7 @@
 }
 
 .app-container {
+  position: relative;
   display: grid;
   place-items: center;
   min-height: 100vh;
@@ -26,7 +27,7 @@ body {
   padding: 0;
   height: 100%;
   position: relative;
-  z-index: 0;
+  z-index: 3;
   font-family: "Treasure Map Deadhand", sans-serif;
   color: var(--text-color);
   background: url("../assets/images/parchment.jpg");
@@ -34,24 +35,6 @@ body {
   background-size: cover; /* Ensures the image covers the entire page */
   background-position: center center; /* Centers the image */
   background-repeat: no-repeat; /* Ensures the image doesn't repeat */
-}
-
-html::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 17%; /* Adjust the size of the faded area */
-  height: 12%; /* Adjust the size of the faded area */
-  border-bottom-left-radius: 210px;
-  background: linear-gradient(
-    to bottom left,
-    rgba(0, 0, 0),
-    /* Dark fade */ rgba(0, 0, 0, 0.7)
-      /* Transparent towards the bottom-right */
-  );
-  pointer-events: none;
-  z-index: 1; /* Ensure it's below the burned corner */
 }
 
 h1,
@@ -67,6 +50,16 @@ h1 {
 
 h3 {
   font-size: 3.2em;
+  text-align: center;
+}
+
+th {
+  font-size: 30px;
+}
+
+table td:first-child {
+  font-size: 30px;
+  padding-right: 10px;
 }
 
 button {
@@ -92,18 +85,6 @@ input {
   color: whitesmoke;
   font-family: inherit;
   font-size: 1.5em;
-}
-
-/* Burned corner */
-.burned-corner {
-  position: absolute;
-  top: 0;
-  right: 0; /* Position in top-right corner */
-  width: 200px; /* Size of the corner */
-  height: 200px;
-  z-index: 2; /* Ensures it is above the faded area */
-  mix-blend-mode: multiply; /* Blends with background */
-  pointer-events: none;
 }
 
 @media (max-width: 768px) {
