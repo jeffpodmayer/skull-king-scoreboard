@@ -6,7 +6,7 @@ interface AddPlayerProps {
   onAddPlayer: (newPlayerName: string) => void;
 }
 
-export const PlayerList: React.FC<AddPlayerProps> = ({
+export const AddPlayer: React.FC<AddPlayerProps> = ({
   players,
   onAddPlayer,
 }) => {

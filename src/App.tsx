@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PlayerList } from "./components/AddPlayer/AddPlayer";
+import { AddPlayer } from "./components/AddPlayer/AddPlayer";
 import { RoundTracker } from "./components/RoundTracker/RoundTracker";
 import { Scoreboard } from "./components/Scoreboard/Scoreboard";
 import { Hero } from "./components/Hero/Hero";
@@ -39,23 +39,29 @@ function App() {
     }
   };
 
+  const playersExist = players.length >= 1;
+
   return (
     <div className="app-container">
       <Hero />
-      <PlayerList players={players} onAddPlayer={handleAddPlayer} />
-      <RoundTracker
-        players={players}
-        roundNumber={roundNumber}
-        onRoundUpdate={handleRoundUpdate}
-        roundBid={roundBid}
-        setRoundBid={setRoundBid}
-        roundTricksWon={roundTricksWon}
-        setRoundTricksWon={setRoundTricksWon}
-        bonusPoints={bonusPoints}
-        setBonusPoints={setBonusPoints}
-        removePlayer={removePlayer}
-      />
-      <Scoreboard players={players} rounds={rounds} />
+      <AddPlayer players={players} onAddPlayer={handleAddPlayer} />
+      {playersExist && (
+        <>
+          <RoundTracker
+            players={players}
+            roundNumber={roundNumber}
+            onRoundUpdate={handleRoundUpdate}
+            roundBid={roundBid}
+            setRoundBid={setRoundBid}
+            roundTricksWon={roundTricksWon}
+            setRoundTricksWon={setRoundTricksWon}
+            bonusPoints={bonusPoints}
+            setBonusPoints={setBonusPoints}
+            removePlayer={removePlayer}
+          />
+          <Scoreboard players={players} rounds={rounds} />
+        </>
+      )}
     </div>
   );
 }
