@@ -8,6 +8,7 @@
 
 .app-container {
   position: relative;
+  display: grid;
   place-items: center;
   min-height: 100vh;
   width: 100vw;
@@ -93,53 +94,40 @@ input {
   color: whitesmoke;
   font-family: inherit;
   font-size: 1.5em;
-  padding: 0.4em 0.8em;
+  padding: 0.3em 0.6em;
   max-width: 400px;
 }
 
 /* Mobile styles */
 @media (max-width: 768px) {
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+  }
+
+  /* Scaling Down Headings */
   h1 {
     font-size: 4em;
+    margin-bottom: 0.5em;
+    text-align: center;
   }
 
   h3 {
-    font-size: 2.5em;
+    font-size: 3em;
+    text-align: center;
   }
 
+  /* Table Styles */
   th,
   table td:first-child {
-    font-size: 24px;
+    font-size: 1.5em;
   }
 
   input,
   button {
     font-size: 1.2em;
-  }
-
-  table {
-    overflow-x: auto;
-    display: block;
-  }
-}
-
-/* Small Devices */
-@media (max-width: 480px) {
-  h1 {
-    font-size: 3.5em;
-  }
-
-  h3 {
-    font-size: 2.2em;
-  }
-
-  th,
-  table td:first-child {
-    font-size: 20px;
-  }
-
-  input,
-  button {
-    font-size: 1.1em;
   }
 }

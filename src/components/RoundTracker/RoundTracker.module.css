@@ -1,6 +1,4 @@
 .round_tracker_container {
-  width: 90%;
-  border-top: 2px dashed var(--text-color);
   position: relative;
   padding-bottom: 30px;
 }
@@ -18,4 +16,15 @@
   text-align: center;
   width: 7em;
   margin: 1px;
+}
+
+.player_cell {
+  display: flex;
+}
+
+.player_cell img {
+  cursor: pointer;
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: 8px;
 }

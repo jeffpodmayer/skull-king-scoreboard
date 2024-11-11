@@ -17,24 +17,22 @@ export const Scoreboard: React.FC<ScoreboardProps> = ({ players, rounds }) => {
 
   return (
     <div className={styles.scoreboard_container}>
-      <div className={styles.total_score_container}>
-        <table>
-          <thead>
-            <tr>
-              <th>Player</th>
-              <th>Total Score</th>
+      <table>
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th>Total Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          {sortedPlayers.map((player, index) => (
+            <tr key={index}>
+              <td>{player.name}</td>
+              <td>{player.score}</td>
             </tr>
-          </thead>
-          <tbody>
-            {sortedPlayers.map((player, index) => (
-              <tr key={index}>
-                <td>{player.name}</td>
-                <td>{player.score}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
 
       <h3>Round Scores</h3>
       <table>

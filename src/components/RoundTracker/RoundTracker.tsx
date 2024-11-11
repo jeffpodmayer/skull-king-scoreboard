@@ -73,17 +73,19 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
             {players.map((player, index) => (
               <tr key={player}>
                 <td>
-                  <img
-                    src={UserIcon}
-                    alt="Remove Player Icon"
-                    style={{
-                      width: "20px",
-                      marginRight: "3px",
-                      marginBottom: "-3px",
-                    }}
-                    onClick={() => removePlayer(player)}
-                  />
-                  {player}
+                  <div className={styles.player_cell}>
+                    <img
+                      src={UserIcon}
+                      alt="Remove Player Icon"
+                      style={{
+                        width: "20px",
+                        marginRight: "3px",
+                        marginBottom: "-3px",
+                      }}
+                      onClick={() => removePlayer(player)}
+                    />
+                    {player}
+                  </div>
                 </td>
                 <td>
                   <input
