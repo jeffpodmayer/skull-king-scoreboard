@@ -13,7 +13,7 @@
   min-height: 100vh;
   width: 100vw;
   margin: 0;
-  padding: 0;
+  padding: 20px;
 }
 
 @font-face {
@@ -36,6 +36,7 @@ body {
   background-repeat: no-repeat;
 }
 
+/* Typeography */
 h1,
 h2,
 h3 {
@@ -52,6 +53,12 @@ h3 {
   text-align: center;
 }
 
+/* Tables */
+table {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
 th {
   font-size: 30px;
 }
@@ -61,6 +68,7 @@ table td:first-child {
   padding-right: 10px;
 }
 
+/* Form elements */
 button {
   border-radius: 8px;
   border: none;
@@ -71,6 +79,8 @@ button {
   background-color: var(--button-color);
   cursor: pointer;
   color: var(--text-color);
+  max-width: 300px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 button:hover {
@@ -84,11 +94,34 @@ input {
   color: whitesmoke;
   font-family: inherit;
   font-size: 1.5em;
+  padding: 0.4em 0.8em;
+  max-width: 400px;
 }
 
+/* Mobile styles */
 @media (max-width: 768px) {
-  .burned-corner {
-    width: 100px;
-    height: 100px;
+  h1 {
+    font-size: 4em;
+  }
+
+  h3 {
+    font-size: 2.5em;
+  }
+
+  th,
+  table td:first-child {
+    font-size: 24px;
+  }
+
+  input,
+  button {
+    font-size: 1.2em;
+  }
+
+  table {
+    overflow-x: auto;
+    display: block;
   }
 }
+
+/* Very Small Devices */
