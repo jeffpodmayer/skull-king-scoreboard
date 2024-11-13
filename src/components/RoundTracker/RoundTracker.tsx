@@ -4,6 +4,8 @@ import UserIcon from "../../assets/icons/close_icon.png";
 import styles from "./RoundTracker.module.css";
 interface RoundTrackerProps {
   players: string[];
+  isGameStarted: boolean;
+  startGame: () => void;
   roundNumber: number;
   onRoundUpdate: (newScores: number[]) => void;
   roundBid: number[];
@@ -26,6 +28,8 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
   bonusPoints,
   setBonusPoints,
   removePlayer,
+  isGameStarted,
+  startGame,
 }) => {
   const handleInputChange = (
     index: number,
@@ -59,7 +63,13 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
   return (
     <div className={styles.round_tracker_container}>
       <div className={styles.round_tracker}>
-        <h3>{isGameOver ? "Game Over" : `Round: ${roundNumber}`}</h3>
+        <h3>
+          {!isGameStarted
+            ? "Yo Ho Ho!"
+            : isGameOver
+            ? "Game Over"
+            : `Round: ${roundNumber}`}
+        </h3>
         <table>
           <thead>
             <tr>
@@ -136,8 +146,8 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
             ))}
           </tbody>
         </table>
-        <button onClick={handleRoundSubmit} disabled={isGameOver}>
-          Submit Round Scores
+        <button onClick={isGameStarted ? handleRoundSubmit : startGame}>
+          {isGameStarted ? "Submit Round Scores" : "Start Game"}
         </button>
       </div>
     </div>

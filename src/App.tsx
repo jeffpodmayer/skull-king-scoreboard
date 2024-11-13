@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import { AddPlayer } from "./components/AddPlayer/AddPlayer";
 import { RoundTracker } from "./components/RoundTracker/RoundTracker";
 import { Scoreboard } from "./components/Scoreboard/Scoreboard";
@@ -14,6 +15,7 @@ function App() {
   const [roundBid, setRoundBid] = useState<number[]>([]);
   const [roundTricksWon, setRoundTricksWon] = useState<number[]>([]);
   const [bonusPoints, setBonusPoints] = useState<number[]>([]);
+  const [isGameStarted, setIsGameStarted] = useState(false);
 
   const handleAddPlayer = (newPlayerName: string) => {
     setPlayers((prevPlayers) => [...prevPlayers, newPlayerName]);
@@ -21,6 +23,12 @@ function App() {
     setRoundTricksWon((prev) => [...prev, 0]);
     setBonusPoints((prev) => [...prev, 0]);
   };
+
+  useEffect(() => {
+    if (players.length === 0) {
+      setIsGameStarted(false);
+    }
+  }, [players]);
 
   const removePlayer = (playerToRemove: string) => {
     setPlayers(players.filter((player) => player !== playerToRemove));
@@ -40,11 +48,18 @@ function App() {
   };
 
   const playersExist = players.length >= 1;
+  const startGame = () => {
+    setIsGameStarted(true);
+  };
 
   return (
     <div className="app-container">
       <Hero />
-      <AddPlayer players={players} onAddPlayer={handleAddPlayer} />
+      <>
+        {(!isGameStarted || players.length === 0) && (
+          <AddPlayer players={players} onAddPlayer={handleAddPlayer} />
+        )}
+      </>
       {playersExist && (
         <>
           <RoundTracker
@@ -58,7 +73,13 @@ function App() {
             bonusPoints={bonusPoints}
             setBonusPoints={setBonusPoints}
             removePlayer={removePlayer}
+            isGameStarted={isGameStarted}
+            startGame={startGame}
           />
+        </>
+      )}
+      {isGameStarted && (
+        <>
           <Scoreboard players={players} rounds={rounds} />
         </>
       )}
