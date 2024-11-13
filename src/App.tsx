@@ -54,6 +54,7 @@ function App() {
 
   return (
     <div className="app-container">
+      <div className="pirate-ship-background"></div>
       <Hero />
       <>
         {(!isGameStarted || players.length === 0) && (
