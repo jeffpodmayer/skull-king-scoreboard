@@ -22,7 +22,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 20px; /* Adjust spacing to control the gap between Hero and AddPlayer */
+  gap: 20px;
   padding-top: 20px;
 }
 
@@ -64,8 +64,8 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  right: 72%;
-  bottom: -60%;
+  right: 60%;
+  bottom: -80%;
   background-image: url("../assets/images/pirate_flag.png");
   opacity: 0.3;
   background-size: contain; /* Adjust to your preference */
