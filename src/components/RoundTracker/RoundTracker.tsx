@@ -5,6 +5,7 @@ import styles from "./RoundTracker.module.css";
 interface RoundTrackerProps {
   players: string[];
   isGameStarted: boolean;
+  startNewGame: () => void;
   startGame: () => void;
   roundNumber: number;
   onRoundUpdate: (newScores: number[]) => void;
@@ -30,6 +31,7 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
   removePlayer,
   isGameStarted,
   startGame,
+  startNewGame,
 }) => {
   const handleInputChange = (
     index: number,
@@ -69,7 +71,9 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
           ) : isGameOver ? (
             <>
               Game Over
-              <button className={styles.new_game}>New Game</button>
+              <button className={styles.new_game} onClick={startNewGame}>
+                New Game
+              </button>
             </>
           ) : (
             `Round: ${roundNumber}`

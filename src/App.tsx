@@ -52,6 +52,11 @@ function App() {
     setIsGameStarted(true);
   };
 
+  const startNewGame = () => {
+    setIsGameStarted(false);
+    setPlayers([]);
+  };
+
   return (
     <div className="app-container">
       <div className="pirate-ship-background"></div>
@@ -79,6 +84,7 @@ function App() {
             removePlayer={removePlayer}
             isGameStarted={isGameStarted}
             startGame={startGame}
+            startNewGame={startNewGame}
           />
         </>
       )}
