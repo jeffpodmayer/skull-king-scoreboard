@@ -56,12 +56,14 @@ function App() {
     <div className="app-container">
       <div className="pirate-ship-background"></div>
       <div className="pirate-flag-background"></div>
-      <Hero />
-      <>
-        {(!isGameStarted || players.length === 0) && (
-          <AddPlayer players={players} onAddPlayer={handleAddPlayer} />
-        )}
-      </>
+      <div className="homepage-layout">
+        <Hero />
+        <>
+          {(!isGameStarted || players.length === 0) && (
+            <AddPlayer players={players} onAddPlayer={handleAddPlayer} />
+          )}
+        </>
+      </div>
       {playersExist && (
         <>
           <RoundTracker

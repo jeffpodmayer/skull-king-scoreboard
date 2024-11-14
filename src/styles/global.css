@@ -17,6 +17,15 @@
   z-index: 1;
 }
 
+.homepage-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px; /* Adjust spacing to control the gap between Hero and AddPlayer */
+  padding-top: 20px;
+}
+
 @font-face {
   font-family: "Treasure Map Deadhand";
   src: url("../assets/fonts/TreasureMapDeadhand.ttf") format("truetype");
