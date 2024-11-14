@@ -28,3 +28,9 @@
   align-self: flex-start;
   margin-top: 8px;
 }
+
+.new_game {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.5em;
+}
