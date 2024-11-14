@@ -55,6 +55,7 @@ function App() {
   const startNewGame = () => {
     setIsGameStarted(false);
     setPlayers([]);
+    setRoundNumber(1);
   };
 
   return (
