@@ -51,6 +51,19 @@ body {
   z-index: -1; /* This ensures it stays behind other content */
 }
 
+.pirate-flag-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 72%;
+  bottom: -60%;
+  background-image: url("../assets/images/pirate_flag.png");
+  opacity: 0.3;
+  background-size: contain; /* Adjust to your preference */
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1; /* This ensures it stays behind other content */
+}
 /* Typeography */
 h1,
 h2,
