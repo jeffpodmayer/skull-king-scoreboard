@@ -3,6 +3,14 @@
   padding-bottom: 30px;
 }
 
+.round_tracker_header {
+  display: flex;
+  align-items: center; /* Vertically align items */
+  justify-content: space-between; /* Push elements to edges */
+  padding: 0.5em 1em; /* Add spacing */
+  margin-left: 15%;
+}
+
 .round_tracker {
   display: flex;
   flex-direction: column;
@@ -33,4 +41,19 @@
   display: flex;
   flex-direction: column;
   font-size: 0.5em;
+}
+
+.reset_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; /* Adjust size for your design */
+  height: 45px; /* Ensure square shape */
+  border: none;
+  cursor: pointer;
+}
+
+.reset_button svg {
+  width: 20px;
+  height: 20px;
 }

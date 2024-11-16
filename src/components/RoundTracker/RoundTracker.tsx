@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 import { calculateNewScores } from "../../utils/ScoreCalculator";
 import UserIcon from "../../assets/icons/close_icon.png";
 import styles from "./RoundTracker.module.css";
@@ -66,20 +68,27 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
   return (
     <div className={styles.round_tracker_container}>
       <div className={styles.round_tracker}>
-        <h3>
-          {!isGameStarted ? (
-            "Yo Ho Ho!"
-          ) : isGameOver ? (
-            <>
-              Game Over
-              <button className={styles.new_game} onClick={startNewGame}>
-                New Game
-              </button>
-            </>
-          ) : (
-            `Round: ${roundNumber}`
+        <div className={styles.round_tracker_header}>
+          <h3>
+            {!isGameStarted ? (
+              "Yo Ho Ho!"
+            ) : isGameOver ? (
+              <>
+                Game Over
+                <button className={styles.new_game} onClick={startNewGame}>
+                  New Game
+                </button>
+              </>
+            ) : (
+              `Round: ${roundNumber}`
+            )}{" "}
+          </h3>
+          {!isGameOver && (
+            <button className={styles.reset_button} onClick={startNewGame}>
+              <FontAwesomeIcon icon={faRotateRight} />
+            </button>
           )}
-        </h3>
+        </div>
         {!isGameOver && (
           <table>
             <thead>
