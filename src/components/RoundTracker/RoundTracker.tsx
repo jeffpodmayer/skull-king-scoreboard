@@ -125,6 +125,7 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
                           Number(e.target.value)
                         )
                       }
+                      disabled={!isGameStarted}
                     />
                   </td>
                   <td>
@@ -140,6 +141,7 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
                           Number(e.target.value)
                         )
                       }
+                      disabled={!isGameStarted}
                     />
                   </td>
                   <td>
@@ -155,6 +157,7 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
                           Number(e.target.value)
                         )
                       }
+                      disabled={!isGameStarted}
                     />
                   </td>
                 </tr>
