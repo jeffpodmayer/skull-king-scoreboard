@@ -2,6 +2,7 @@ import React from "react";
 import { calculateNewScores } from "../../utils/ScoreCalculator";
 import UserIcon from "../../assets/icons/close_icon.png";
 import styles from "./RoundTracker.module.css";
+
 interface RoundTrackerProps {
   players: string[];
   isGameStarted: boolean;

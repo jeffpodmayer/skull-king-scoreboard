@@ -56,6 +56,9 @@ function App() {
     setIsGameStarted(false);
     setPlayers([]);
     setRoundNumber(1);
+    setRoundBid(Array(players.length).fill(0)); // Reset round bids
+    setRoundTricksWon(Array(players.length).fill(0)); // Reset tricks won
+    setBonusPoints(Array(players.length).fill(0)); // Reset bonus points
   };
 
   return (

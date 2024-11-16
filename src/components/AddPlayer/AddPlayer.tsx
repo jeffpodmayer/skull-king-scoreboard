@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./AddPlayer.module.css";
 
 interface AddPlayerProps {
@@ -29,6 +29,19 @@ export const AddPlayer: React.FC<AddPlayerProps> = ({
       alert("Please enter a player name.");
     }
   };
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Enter") {
+        handleAddPlayer();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleAddPlayer]);
 
   return (
     <div className={styles.add_player}>
