@@ -19,6 +19,7 @@ interface RoundTrackerProps {
   bonusPoints: number[];
   setBonusPoints: React.Dispatch<React.SetStateAction<number[]>>;
   removePlayer: (playerToRemove: string) => void;
+  editPreviousRound: () => void;
 }
 
 export const RoundTracker: React.FC<RoundTrackerProps> = ({
@@ -35,6 +36,7 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
   isGameStarted,
   startGame,
   startNewGame,
+  editPreviousRound,
 }) => {
   const handleInputChange = (
     index: number,
@@ -84,7 +86,7 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
             )}{" "}
           </h3>
           {!isGameOver && (
-            <button className={styles.reset_button} onClick={startNewGame}>
+            <button className={styles.reset_button} onClick={editPreviousRound}>
               <FontAwesomeIcon icon={faRotateRight} />
             </button>
           )}
