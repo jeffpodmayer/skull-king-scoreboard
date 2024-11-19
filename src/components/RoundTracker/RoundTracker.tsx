@@ -1,6 +1,6 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 import { calculateNewScores } from "../../utils/ScoreCalculator";
 import UserIcon from "../../assets/icons/close_icon.png";
 import styles from "./RoundTracker.module.css";
@@ -19,7 +19,7 @@ interface RoundTrackerProps {
   bonusPoints: number[];
   setBonusPoints: React.Dispatch<React.SetStateAction<number[]>>;
   removePlayer: (playerToRemove: string) => void;
-  editPreviousRound: () => void;
+  // editPreviousRound: () => void;
 }
 
 export const RoundTracker: React.FC<RoundTrackerProps> = ({
@@ -36,7 +36,7 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
   isGameStarted,
   startGame,
   startNewGame,
-  editPreviousRound,
+  // editPreviousRound,
 }) => {
   const handleInputChange = (
     index: number,
@@ -85,11 +85,11 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
               `Round: ${roundNumber}`
             )}{" "}
           </h3>
-          {!isGameOver && (
-            <button className={styles.reset_button} onClick={editPreviousRound}>
+          {/* {!isGameOver && (
+            <button className={styles.reset_button}>
               <FontAwesomeIcon icon={faRotateRight} />
             </button>
-          )}
+          )} */}
         </div>
         {!isGameOver && (
           <table>

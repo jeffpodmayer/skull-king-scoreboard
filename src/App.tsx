@@ -62,14 +62,14 @@ function App() {
     setBonusPoints(Array(players.length).fill(0)); // Reset bonus points
   };
 
-  const editPreviousRound = (roundIndex: number) => {
-    const roundData = rounds[roundIndex]; // Access the specific round
-    if (roundData) {
-      setRoundBid([...roundBid]); // Use the round's data to set roundBid
-      setRoundTricksWon([...roundTricksWon]); // Adjust to your structure for tricks won
-      setBonusPoints([...bonusPoints]); // Adjust to your structure for bonus points
-    }
-  };
+  // const editPreviousRound = (roundIndex: number) => {
+  //   const roundData = rounds[roundIndex]; // Access the specific round
+  //   if (roundData) {
+  //     setRoundBid([...roundBid]); // Use the round's data to set roundBid
+  //     setRoundTricksWon([...roundTricksWon]); // Adjust to your structure for tricks won
+  //     setBonusPoints([...bonusPoints]); // Adjust to your structure for bonus points
+  //   }
+  // };
 
   return (
     <div className="app-container">
@@ -99,7 +99,7 @@ function App() {
             isGameStarted={isGameStarted}
             startGame={startGame}
             startNewGame={startNewGame}
-            editPreviousRound={editPreviousRound}
+            // editPreviousRound={editPreviousRound}
           />
         </>
       )}
