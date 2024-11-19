@@ -93,7 +93,10 @@ export const RoundTracker: React.FC<RoundTrackerProps> = ({
             )}{" "}
           </h3>
           {!isGameOver && (
-            <button className={styles.reset_button} onClick={editPreviousRound}>
+            <button
+              className={styles.reset_button}
+              onClick={() => editPreviousRound(roundNumber)}
+            >
               <FontAwesomeIcon icon={faRotateRight} />
             </button>
           )}
