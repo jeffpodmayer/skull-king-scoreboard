@@ -8,7 +8,6 @@
   align-items: center; /* Vertically align items */
   justify-content: space-between; /* Push elements to edges */
   padding: 0.5em 1em; /* Add spacing */
-  margin-left: 15%;
 }
 
 .round_tracker {

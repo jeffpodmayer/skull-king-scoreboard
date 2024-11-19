@@ -55,6 +55,7 @@ function App() {
   const startNewGame = () => {
     setIsGameStarted(false);
     setPlayers([]);
+    setRounds([]);
     setRoundNumber(1);
     setRoundBid(Array(players.length).fill(0)); // Reset round bids
     setRoundTricksWon(Array(players.length).fill(0)); // Reset tricks won
