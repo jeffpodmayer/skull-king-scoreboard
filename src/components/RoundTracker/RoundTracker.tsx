@@ -8,18 +8,25 @@ import styles from "./RoundTracker.module.css";
 interface RoundTrackerProps {
   players: string[];
   isGameStarted: boolean;
-  startNewGame: () => void;
-  startGame: () => void;
   roundNumber: number;
-  onRoundUpdate: (newScores: number[]) => void;
   roundBid: number[];
   setRoundBid: React.Dispatch<React.SetStateAction<number[]>>;
   roundTricksWon: number[];
   setRoundTricksWon: React.Dispatch<React.SetStateAction<number[]>>;
   bonusPoints: number[];
   setBonusPoints: React.Dispatch<React.SetStateAction<number[]>>;
+  startGame: () => void;
+  startNewGame: () => void;
+  onRoundUpdate: (
+    newPlayerData: {
+      playerName: string;
+      bid: number;
+      tricksWon: number;
+      bonusPoints: number;
+    }[]
+  ) => void;
   removePlayer: (playerToRemove: string) => void;
-  editPreviousRound: () => void;
+  editPreviousRound: (round: number) => void;
 }
 
 export const RoundTracker: React.FC<RoundTrackerProps> = ({

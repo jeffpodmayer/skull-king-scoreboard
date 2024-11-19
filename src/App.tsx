@@ -8,14 +8,22 @@ import "./styles/global.css";
 
 function App() {
   const [players, setPlayers] = useState<string[]>([]);
-  const [rounds, setRounds] = useState<
-    { roundNumber: number; scores: number[] }[]
-  >([]);
+  const [isGameStarted, setIsGameStarted] = useState(false);
   const [roundNumber, setRoundNumber] = useState(1);
   const [roundBid, setRoundBid] = useState<number[]>([]);
   const [roundTricksWon, setRoundTricksWon] = useState<number[]>([]);
   const [bonusPoints, setBonusPoints] = useState<number[]>([]);
-  const [isGameStarted, setIsGameStarted] = useState(false);
+  const [rounds, setRounds] = useState<
+    {
+      roundNumber: number;
+      playerData: {
+        playerName: string;
+        bid: number;
+        tricksWon: number;
+        bonusPoints: number;
+      }[];
+    }[]
+  >([]);
 
   const handleAddPlayer = (newPlayerName: string) => {
     setPlayers((prevPlayers) => [...prevPlayers, newPlayerName]);
@@ -34,17 +42,20 @@ function App() {
     setPlayers(players.filter((player) => player !== playerToRemove));
   };
 
-  const handleRoundUpdate = (newScores: number[]) => {
+  const handleRoundUpdate = (
+    newPlayerData: {
+      playerName: string;
+      bid: number;
+      tricksWon: number;
+      bonusPoints: number;
+    }[]
+  ) => {
     setRounds((prevRounds) => [
       ...prevRounds,
-      { roundNumber, scores: newScores },
+      { roundNumber, playerData: newPlayerData },
     ]);
 
-    if (roundNumber < 10) {
-      setRoundNumber((prev) => prev + 1);
-    } else {
-      setRoundNumber(11);
-    }
+    setRoundNumber((prev) => (roundNumber < 10 ? prev + 1 : 11));
   };
 
   const playersExist = players.length >= 1;
@@ -63,11 +74,12 @@ function App() {
   };
 
   const editPreviousRound = (roundIndex: number) => {
-    const roundData = rounds[roundIndex]; // Access the specific round
+    const roundData = rounds[roundIndex];
     if (roundData) {
-      setRoundBid([...roundBid]); // Use the round's data to set roundBid
-      setRoundTricksWon([...roundTricksWon]); // Adjust to your structure for tricks won
-      setBonusPoints([...bonusPoints]); // Adjust to your structure for bonus points
+      // Update the bid, tricks, and bonus points for each player in this round
+      setRoundBid(roundData.playerData.map((data) => data.bid));
+      setRoundTricksWon(roundData.playerData.map((data) => data.tricksWon));
+      setBonusPoints(roundData.playerData.map((data) => data.bonusPoints));
     }
   };
 

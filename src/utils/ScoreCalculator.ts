@@ -1,13 +1,27 @@
 interface Round {
   roundNumber: number;
-  scores: number[];
+  playerData: PlayerData[];
 }
 
-export const computeTotalScores = (players: string[], rounds: Round[]) => {
-  return players.map((_, playerIndex) => {
+interface PlayerData {
+  playerName: string;
+  bid: number;
+  tricksWon: number;
+  bonusPoints: number;
+}
+
+export const computeTotalScores = (players: string[], rounds: any[]) => {
+  return players.map((player) => {
     return rounds.reduce((totalScore, round) => {
-      return totalScore + round.scores[playerIndex];
-    }, 0);
+      const playerData = round.playerData.find(
+        (data) => data.playerName === player
+      );
+      if (playerData) {
+        totalScore +=
+          playerData.tricksWon - playerData.bid + playerData.bonusPoints;
+      }
+      return totalScore;
+    }, 0); // Initial score is 0
   });
 };
 
@@ -18,7 +32,7 @@ export const calculateNewScores = (
   bonusPoints: number[],
   roundNumber: number
 ) => {
-  return players.map((_, index) => {
+  return players.map((player, index) => {
     const bid = roundBid[index];
     const tricks = roundTricksWon[index];
     const bonus = bonusPoints[index];
@@ -38,6 +52,12 @@ export const calculateNewScores = (
         score = bid * -10; // Failed bid
       }
     }
-    return score;
+    return {
+      playerName: player,
+      bid: bid,
+      tricksWon: tricks,
+      bonusPoints: bonus,
+      score: score, // Add the calculated score to the player object
+    };
   });
 };
